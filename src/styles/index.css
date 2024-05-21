@@ -1,0 +1,43 @@
+body {
+    font-family: 'Arial';
+    background-color: #F2F4F5;
+}
+
+.product-page {}
+
+.product-page-block {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.page-block-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    border-radius: 4px;
+}
+
+.page-block-right {
+
+}
+
+.container {
+    padding-inline: 1rem;
+}
+
+.search-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.add-page {
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}

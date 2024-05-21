@@ -1,0 +1,26 @@
+.product-item {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product-item-image {
+    display: flex;
+}
+
+.product-item-image p {
+    background-color: #C0BEBE;
+    width: 19.094rem;
+    height: 14.227rem;
+    border-radius: 4px 4px 0 0;
+}
+
+.product-item-description {
+    display: flex;
+    flex-direction: column;
+    width: 18.969rem;
+    height: 8.5rem;
+    border-radius: 0 0 4px 4px;
+    padding: 1rem;
+    background-color: #fff;
+}

@@ -1,0 +1,10 @@
+.product-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #fff;
+    /*padding: 1rem 5rem;*/
+    width: 24.438rem;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+}

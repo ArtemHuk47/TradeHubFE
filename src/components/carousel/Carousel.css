@@ -1,0 +1,23 @@
+.carousel-block {
+    background-color: #fff;
+    width: 49.916rem;
+    /*height: 39.438rem;*/
+    padding: 1rem;
+    background-color: #fff;
+}
+
+.image-gallery-fullscreen-button {
+
+}
+
+.image-gallery-play-button {
+    display: none;
+}
+
+.image-gallery-thumbnails-container {
+    /*display: none;*/
+}
+
+.image-gallery-thumbnails {
+    padding: 0;
+}

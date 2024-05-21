@@ -1,0 +1,95 @@
+.add-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-input {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.info-input input {
+    width: 34rem;
+    height: 3.5rem;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 1rem;
+}
+.info-input select {
+    width: 34rem;
+    height: 3.5rem;
+    background-color: #fff;
+    border: 0px solid red;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.info-input textarea {
+    max-width: 34rem;
+    /*height: 3.5rem;*/
+    background-color: #fff;
+    border: 0px solid red;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.info-input textarea:focus-visible {
+    border: 0px solid red;
+}
+
+.info-input select:focus-visible {
+    border: 0px solid red;
+}
+
+.info-block {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.info-price {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.info-price input {
+    width: 13.5rem;
+    height: 3.5rem;
+    background-color: #fff;
+    border-radius: 4px 0 0 4px;
+    padding: 1rem;
+}
+
+.price-input {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-price .price-button {
+    color: white;
+    background-color: #E42828;
+    width: 6.938rem;
+    height: 3.5rem;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.info-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-amount input {
+    width: 10.563rem;
+    height: 3.5rem;
+    background-color: #fff;
+    border-radius: 4px;
+}

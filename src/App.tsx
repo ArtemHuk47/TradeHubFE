@@ -1,12 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppRouter from "./components/AppRouter";
+import {BrowserRouter, useNavigate} from "react-router-dom";
+import Header from "./components/header/Header";
 
 function App() {
   return (
-    <div className="App">
+      <BrowserRouter basename="/">
+          <Header />
+        <AppRouter />
 
-    </div>
+      </BrowserRouter>
   );
 }
 

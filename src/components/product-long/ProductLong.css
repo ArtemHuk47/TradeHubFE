@@ -1,0 +1,27 @@
+.product-long {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.product-long-image {
+    display: flex;
+
+}
+
+.product-long-image p {
+    background-color: #C0BEBE;
+    width: 13.5rem;
+    height: 9.5rem;
+    border-radius: 4px 4px 0 0;
+}
+
+.product-long-description {
+    display: flex;
+    flex-direction: column;
+    width: 60.875rem;
+    height: 9.5rem;
+    border-radius: 0 0 4px 4px;
+    padding: 1rem;
+    background-color: #fff;
+}

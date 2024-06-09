@@ -1,9 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import "./ProductName.css";
+import {Category, Product} from "../../models/models";
+import {fetchCategoryById} from "../../api/categoryApi";
+interface ProductNameProps {
+    product: Product | null
+}
+function ProductName({product}: ProductNameProps) {
+    const [category, setCategory] = useState<Category>();
 
-function ProductName() {
-
+    useEffect(() => {
+        const getCategory = async () => {
+            try {
+                if(product?.categoryId) {
+                    const userData = await fetchCategoryById(product.categoryId);
+                    setCategory(userData);
+                }
+            } catch (error) {
+                console.error('Failed to fetch users:', error);
+                // Handle errors or set error state as needed
+            }
+        };
+        getCategory();
+    }, []);
 
     return (
         <div className="product-name">
@@ -26,13 +45,13 @@ function ProductName() {
 
             <div className="product-info">
                 <div className="info-category">
-                    <p>Назва категорії</p>
+                    <p>{category?.name ?? ""}</p>
                 </div>
                 <div className="info-name">
-                    <p>Назва товару</p>
+                    <p>{product?.name ?? ""}</p>
                 </div>
                 <div className="info-price">
-                    <p>9 999 грн.</p>
+                    <p>{product?.price ?? 0}</p>
                 </div>
 
                 <div className="info-button-cart">

@@ -1,7 +1,11 @@
 import React from 'react';
 import "./ProductDescription.css";
+import {Product} from "../../models/models";
 
-function ProductDescription() {
+interface ProductDescriptionProps {
+    product: Product | null
+}
+function ProductDescription({product}: ProductDescriptionProps) {
 
     return (
         <div className="product-description">
@@ -9,7 +13,7 @@ function ProductDescription() {
                 <p>Опис</p>
             </div>
             <div className="description-description">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unkno</p>
+                <p>{product?.description ?? ""}</p>
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 export const MAIN_ROUTE = '/main'
-export const PRODUCT_ROUTE = '/product'
+export const PRODUCT_ROUTE = '/product/:id'
 export const LOGIN_ROUTE = '/login'
 export const SEARCH_ROUTE = '/search'
 export const ADD_ROUTE = '/add'

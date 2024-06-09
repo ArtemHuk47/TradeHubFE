@@ -1,5 +1,5 @@
 import Category from "../components/category/Category";
-import Product from "../components/product/Product";
+import ProductItems from "../components/product/ProductItems";
 import Search from "../components/search/Search";
 
 function Main() {
@@ -8,7 +8,7 @@ function Main() {
 
             <Search />
             <Category />
-            <Product />
+            <ProductItems />
         </div>
     );
 }

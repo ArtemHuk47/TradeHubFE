@@ -8,6 +8,9 @@ import {fetchProductById, fetchProductImages} from "../api/productApi";
 import {Category, Product} from "../models/models";
 import {fetchCategoryById} from "../api/categoryApi";
 import ProductCartItem from "../components/product/ProductCartItem";
+import MessageList from "../components/MessageList";
+import ChatInput from "../components/ChatInput";
+import ChatInfo from "../components/ChatInfo";
 
 
 function ChatPage() {
@@ -42,19 +45,17 @@ function ChatPage() {
     console.log(images)
 
     return (
-        <div className="product-page container">
-            <div className="product-page-block">
+        <div className="chat-page">
 
-                <div className="page-block-left">
-                    <p>dsasdf</p>
-                </div>
-
-                <div className="page-block-right">
-                    <div className="product-search-list">
-                        <p>dsasdf</p>
-                    </div>
-                </div>
+            <div className="chat-left">
+                <ChatInfo/>
             </div>
+
+            <div className="chat-right">
+                <MessageList/>
+                <ChatInput/>
+            </div>
+
 
         </div>
     );

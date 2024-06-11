@@ -5,10 +5,13 @@ import {CartItemDto, Category, Product, UserDto} from "../../models/models";
 import {fetchCategoryById} from "../../api/categoryApi";
 import api from "../../api/api";
 import {getUserById} from "../../api/userApi";
+import {CHAT_ROUTE} from "../../utils/consts";
+import {useNavigate} from "react-router-dom";
 interface ProductNameProps {
     product: Product | null
 }
 function ProductName({product}: ProductNameProps) {
+    const navigate = useNavigate();
     const [category, setCategory] = useState<Category>();
     const [seller, setSeller] = useState<UserDto| undefined>(undefined)
     console.log("product: ", product)
@@ -89,7 +92,7 @@ function ProductName({product}: ProductNameProps) {
                 <div className="info-button-cart" onClick={handleAddToCart}>
                     <p>Добавити в корзину</p>
                 </div>
-                <div className="info-button-message">
+                <div className="info-button-message" onClick={() => navigate(CHAT_ROUTE)}>
                     <p>Повідомлення</p>
                 </div>
             </div>

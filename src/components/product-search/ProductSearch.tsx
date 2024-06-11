@@ -32,7 +32,7 @@ function ProductSearch () {
 
 
             <div className="product-search-title">
-                <p>Ми знайшли 420 оголошень</p>
+                <p>Ми знайшли {products.length} оголошень</p>
             </div>
 
             <div className="product-search-list">
@@ -44,10 +44,6 @@ function ProductSearch () {
 
             <ul>
                 <li className="active">1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>...</li>
-                <li>11</li>
                 <li> &#10148; </li>
             </ul>
         </div>

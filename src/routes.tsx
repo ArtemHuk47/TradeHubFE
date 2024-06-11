@@ -3,7 +3,7 @@ import {
     LOGIN_ROUTE,
     SEARCH_ROUTE,
     ADD_ROUTE,
-    PRODUCT_ROUTE, CART_ROUTE
+    PRODUCT_ROUTE, CART_ROUTE, CHAT_ROUTE
 } from "./utils/consts"; // Імпорт рядкових констант для шляхів.
 
 import Main from "./pages/Main";
@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import SearchPage from "./pages/SearchPage";
 import AddPage from "./pages/AddPage";
 import CartPage from "./pages/CartPage";
+import ChatPage from "./pages/ChatPage";
 
 
 export const authRoutes = [
@@ -43,6 +44,10 @@ export const publicRoutes = [
     {
         path: CART_ROUTE,
         Component: CartPage
+    },
+    {
+        path: CHAT_ROUTE,
+        Component: ChatPage
     }
 ];
 

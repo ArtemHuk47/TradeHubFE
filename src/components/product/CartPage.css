@@ -1,23 +1,23 @@
-.product-long {
+.cart-item {
     display: flex;
     flex-direction: row;
 
 }
 
-.product-long-image {
+.cart-item-image {
     display: flex;
     max-width: 13.5rem;
     height: 9.5rem;
 }
 
-.product-long-image p {
+.cart-item-image p {
     background-color: #C0BEBE;
     width: 13.5rem;
     height: 9.5rem;
     border-radius: 4px 4px 0 0;
 }
 
-.product-long-description {
+.cart-item-description {
     display: flex;
     flex-direction: column;
     width: 60.875rem;

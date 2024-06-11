@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 
 import "./ProductName.css";
-import {Category, Product} from "../../models/models";
+import {CartItemDto, Category, Product} from "../../models/models";
 import {fetchCategoryById} from "../../api/categoryApi";
+import api from "../../api/api";
 interface ProductNameProps {
     product: Product | null
 }
@@ -23,6 +24,26 @@ function ProductName({product}: ProductNameProps) {
         };
         getCategory();
     }, []);
+
+    const handleAddToCart = async () => {
+        const userId = localStorage.getItem('userId');
+        if (userId && product) {
+
+            const cartItemDto: CartItemDto = {
+                id: 1,
+                userId: parseInt(userId),
+                productId: product.id,
+                quantity: 1  // Assuming you want to add one quantity; adjust as needed
+            };
+
+            try {
+                const response = await api.post('Cart/AddItem', cartItemDto);
+                console.log('Item added to cart successfully:', response.data);
+            } catch (error) {
+                console.error('Failed to add item to cart:', error);
+            }
+        }
+    };
 
     return (
         <div className="product-name">
@@ -54,7 +75,7 @@ function ProductName({product}: ProductNameProps) {
                     <p>{product?.price ?? 0}</p>
                 </div>
 
-                <div className="info-button-cart">
+                <div className="info-button-cart" onClick={handleAddToCart}>
                     <p>Добавити в корзину</p>
                 </div>
                 <div className="info-button-message">
@@ -62,7 +83,7 @@ function ProductName({product}: ProductNameProps) {
                 </div>
             </div>
         </div>
-);
+    );
 }
 
 export default ProductName;

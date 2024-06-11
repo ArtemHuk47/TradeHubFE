@@ -6,6 +6,7 @@
 
 .product-item-image {
     display: flex;
+    width: 18.969rem;
 }
 
 .product-item-image p {

@@ -1,23 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./Carousel.css";
 
-function CarouselBlock() {
-    const images = [
-        {
-            original: "https://picsum.photos/id/1018/1000/600/",
-            thumbnail: "https://picsum.photos/id/1018/250/150/",
-        },
-        {
-            original: "https://picsum.photos/id/1015/1000/600/",
-            thumbnail: "https://picsum.photos/id/1015/250/150/",
-        },
-        {
-            original: "https://picsum.photos/id/1019/1000/600/",
-            thumbnail: "https://picsum.photos/id/1019/250/150/",
-        },
-    ];
+interface CarouselBlockProps{
+    imageUrls: string[]
+}
+function CarouselBlock({imageUrls} : CarouselBlockProps) {
+    console.log("Image URLs:", imageUrls); // Debug to see what URLs are passed
+
+    const images = imageUrls.map(x => ({
+        original: `http://localhost:5292/${x}`,
+        thumbnail: `http://localhost:5292/${x}`
+    }));
 
     return (
         <div className="carousel-block">

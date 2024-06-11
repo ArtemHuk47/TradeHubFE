@@ -4,7 +4,6 @@ import "../components/add-info/AddInfo.css"
 import {Category, Condition, CreateProductDto, Product} from "../models/models";
 import {createProduct, uploadProductImages} from "../api/productApi";
 import {fetchCategories} from "../api/categoryApi";
-import {getCurrentUser} from "../api/userApi";
 
 function AddPage() {
     const [images, setImages] = useState<File[]>([]);
@@ -21,9 +20,9 @@ function AddPage() {
     useEffect(() => {
         fetchCategories().then(setCategories).catch(console.error);
         // Fetch current user
-        getCurrentUser().then(user => {
-            setSellerId(user.id);  // Assuming the ID is named Id in UserDto
-        }).catch(console.error);
+        const userId = Number(localStorage.getItem('userId'));
+        setSellerId(userId)
+
     }, []);
     function getEnumKeys(e: any): string[] {
         return Object.keys(e).filter(key => isNaN(Number(key)));

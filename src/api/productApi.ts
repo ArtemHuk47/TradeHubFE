@@ -1,4 +1,4 @@
-import {CreateProductDto, Product, ProductImageResponse} from "../models/models";
+import {CreateProductDto, Product, ProductImageResponse, ProductSearchDto} from "../models/models";
 import api from "./api";
 import axios, { AxiosResponse } from "axios";
 
@@ -28,6 +28,25 @@ export const createProduct = async (productDto: CreateProductDto): Promise<Produ
         return response.data;
     } catch (error) {
         console.error('Error creating product:', error);
+        throw error;  // Rethrowing the error as needed
+    }
+}
+
+export const searchProducts = async (searchParams: ProductSearchDto): Promise<Product[]> => {
+    try {
+        // Construct the query string from searchParams
+        const queryParams = new URLSearchParams();
+        if (searchParams.searchTerm) queryParams.append('searchTerm', searchParams.searchTerm);
+        if (searchParams.categoryId !== undefined) queryParams.append('categoryId', searchParams.categoryId.toString());
+        if (searchParams.minPrice !== undefined) queryParams.append('minPrice', searchParams.minPrice.toString());
+        if (searchParams.maxPrice !== undefined) queryParams.append('maxPrice', searchParams.maxPrice.toString());
+        if (searchParams.condition) queryParams.append('condition', searchParams.condition);
+
+        // Append the query string to the URL
+        const response = await api.get<Product[]>(`/Product/search?${queryParams.toString()}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching products:', error);
         throw error;  // Rethrowing the error as needed
     }
 }

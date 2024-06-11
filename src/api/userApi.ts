@@ -1,4 +1,4 @@
-import {UserDto} from "../models/models";
+import {CartItemDto, UserDto} from "../models/models";
 import api from "./api";
 
 
@@ -11,3 +11,9 @@ export const getCurrentUser = async (): Promise<UserDto> => {
         throw error;  // Rethrowing the error as needed
     }
 }
+
+
+export const fetchCartItemsByUserId = async (userId: number):Promise<CartItemDto[]> => {
+    const response = await api.get<CartItemDto[]>(`Cart/GetCartItems/${userId}`);
+    return response.data;
+};

@@ -3,7 +3,7 @@ import logo from "../../images/TradeHub.png"
 import message from "../../images/Message.png"
 import cart from "../../images/Cart.png"
 import person from "../../images/Person.png"
-import {ADD_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PRODUCT_ROUTE} from "../../utils/consts";
+import {ADD_ROUTE, CART_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, PRODUCT_ROUTE} from "../../utils/consts";
 import { useNavigate } from 'react-router-dom';
 
 function Header () {
@@ -21,7 +21,7 @@ function Header () {
                         <img src={message} alt=""/>
                         <p>Повідомлення</p>
                     </div>
-                    <div className="nav-link">
+                    <div className="nav-link" onClick={() => navigate(CART_ROUTE)}>
                         <img src={cart} alt=""/>
                         <p>Корзина</p>
                     </div>

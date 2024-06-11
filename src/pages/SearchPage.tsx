@@ -11,7 +11,6 @@ function SearchPage() {
     return (
         <div className="search-page">
             <Search />
-
             <ProductSearch />
 
         </div>

@@ -51,3 +51,18 @@ export interface ProductImageResponse {
 export interface ProductImageResponse {
     imageUrl: string;
 }
+
+export interface ProductSearchDto {
+    searchTerm?: string;
+    categoryId?: number;
+    minPrice?: number;
+    maxPrice?: number;
+    condition?: string; // Adjust this type based on your actual 'Condition' enum or type
+}
+
+export interface CartItemDto {
+    id: number,
+    userId: number;
+    productId: number;
+    quantity: number;
+}

@@ -1,21 +1,27 @@
 import React, {useEffect, useState} from 'react';
 
 import "./ProductName.css";
-import {CartItemDto, Category, Product} from "../../models/models";
+import {CartItemDto, Category, Product, UserDto} from "../../models/models";
 import {fetchCategoryById} from "../../api/categoryApi";
 import api from "../../api/api";
+import {getUserById} from "../../api/userApi";
 interface ProductNameProps {
     product: Product | null
 }
 function ProductName({product}: ProductNameProps) {
     const [category, setCategory] = useState<Category>();
-
+    const [seller, setSeller] = useState<UserDto| undefined>(undefined)
+    console.log("product: ", product)
     useEffect(() => {
         const getCategory = async () => {
             try {
+                console.log("test1")
                 if(product?.categoryId) {
                     const userData = await fetchCategoryById(product.categoryId);
                     setCategory(userData);
+                    console.log("test")
+                    const s = await getUserById(product.sellerId)
+                    setSeller(s)
                 }
             } catch (error) {
                 console.error('Failed to fetch users:', error);
@@ -23,8 +29,11 @@ function ProductName({product}: ProductNameProps) {
             }
         };
         getCategory();
-    }, []);
+    }, [product]);
 
+    useEffect(() => {
+
+    }, []);
     const handleAddToCart = async () => {
         const userId = localStorage.getItem('userId');
         if (userId && product) {
@@ -43,6 +52,8 @@ function ProductName({product}: ProductNameProps) {
                 console.error('Failed to add item to cart:', error);
             }
         }
+
+        window.alert("Товар добавлено в кошик")
     };
 
     return (
@@ -59,7 +70,7 @@ function ProductName({product}: ProductNameProps) {
                     </div>
 
                     <div className="seller-name">
-                        <p>Імя продавця</p>
+                        <p>{seller?.firstName ?? '' + " " + seller?.lastName ?? ''}</p>
                     </div>
                 </div>
             </div>

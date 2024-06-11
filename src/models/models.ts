@@ -6,6 +6,7 @@ export interface Product{
     quantity: number,
     condition: Condition,
     categoryId: number,
+    sellerId: number,
 }
 
 export enum Condition {

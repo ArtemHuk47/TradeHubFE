@@ -1,4 +1,4 @@
-import {CreateProductDto, Product, ProductImageResponse, ProductSearchDto} from "../models/models";
+import {Condition, CreateProductDto, Product, ProductImageResponse, ProductSearchDto} from "../models/models";
 import api from "./api";
 import axios, { AxiosResponse } from "axios";
 
@@ -16,6 +16,15 @@ export const fetchProductById = async (id: number): Promise<Product> => {
     try {
         const response = await api.get<Product>(`/Product/${id}`);
         return response.data;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        throw error;  // Rethrowing the error or handling it as needed
+    }
+}
+
+export const setCategoryId = async (id: number): Promise<void> => {
+    try {
+        const response = await api.get<Product>(`/Product/categoryss/${id}`);
     } catch (error) {
         console.error('Error fetching users:', error);
         throw error;  // Rethrowing the error or handling it as needed
@@ -79,3 +88,14 @@ export const fetchProductImages = async (productId: number): Promise<string[]> =
         throw error;  // Rethrowing the error as needed
     }
 }
+
+export const predictPrice = async (dto: PricePredictionDto): Promise<number> => {
+    const response = await api.post<number>('Product/predict-price', dto);
+    return response.data;
+};
+
+export interface PricePredictionDto {
+    name: string,
+    categoryId: number,
+    condition: Condition,
+};

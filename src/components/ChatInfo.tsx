@@ -1,20 +1,12 @@
 import React from 'react';
 
 function ChatInfo () {
+
+    const userId = Number(localStorage.getItem('userId'));
     return (
         <div className="chat-info">
-            <p>Назва чату</p>
             <div className="chat-name">
-                <p>Мяч футбольний</p>
-            </div>
-            <div className="chat-name">
-                <p>Мяч футбольний</p>
-            </div>
-            <div className="chat-name">
-                <p>Мяч футбольний</p>
-            </div>
-            <div className="chat-name">
-                <p>Мяч футбольний</p>
+                <p>{userId === 3 ? "Admin Admin" : "Artem Huk"}</p>
             </div>
         </div>
     );

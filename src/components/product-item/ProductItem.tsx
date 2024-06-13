@@ -38,12 +38,12 @@ function ProductItem({product}: ProductItemProps) {
     return (
         <div className="product-item" onClick={handleNavigate}>
             <div className="product-item-image">
-                {image ? <img src={`http://localhost:5292/${image}`} alt={product.name}/> : <p>No Image Available</p>}
+                {image ? <img src={`http://localhost:5292/${image}`} alt={product.name}/> : <p></p>}
             </div>
 
             <div className="product-item-description">
                 <p className="description-title">{product.name}</p>
-                <p className="description-price">{product.price}</p>
+                <p className="description-price">{product.price} Грн</p>
                 <p className="description-category">{category?.name ?? ""}</p>
             </div>
         </div>

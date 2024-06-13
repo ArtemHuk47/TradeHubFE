@@ -90,6 +90,7 @@ body {
 .message-list {
     flex: 1;
     /*border: 1px solid #ddd;*/
+    width: 54rem;
     padding: 20px;
     background: #fff;
     overflow-y: auto;
@@ -114,7 +115,7 @@ body {
 
 .chat-input {
     display: flex;
-    padding: 10px;
+    padding: 10px 0;
     background: #f4f4f4;
     /*border-top: 1px solid #ddd;*/
 }
@@ -130,7 +131,7 @@ body {
 .chat-input button {
     padding: 10px 20px;
     border: none;
-    background: #007bff;
+    background: #E42828;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
@@ -158,6 +159,10 @@ body {
 .chat-name {
     border-bottom: 1px solid #f4f4f4;
     padding: 1rem;
+}
+
+.chat-name:hover {
+
 }
 
 

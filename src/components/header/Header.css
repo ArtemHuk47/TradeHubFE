@@ -13,9 +13,24 @@ header {
 
 }
 
+
+.header img {
+    mix-blend-mode: hard-light!important;
+}
+
+.login img {
+    mix-blend-mode: hard-light!important;
+}
+
+.icon img {
+    mix-blend-mode: hard-light!important;
+    padding: .9rem;
+}
+
 .logo {
     display: flex;
     align-items: center;
+    mix-blend-mode: hard-light!important;
 }
 
 .nav {

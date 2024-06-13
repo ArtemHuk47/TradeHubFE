@@ -4,7 +4,7 @@ import ProductName from "../components/product-name/ProductName";
 import ProductDescription from "../components/product-description/ProductDescription";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {fetchProductById, fetchProductImages} from "../api/productApi";
+import {fetchProductById, fetchProductImages, setCategoryId} from "../api/productApi";
 import {Category, Product} from "../models/models";
 import {fetchCategoryById} from "../api/categoryApi";
 
@@ -19,6 +19,7 @@ function ProductPage() {
             if (id) {
                 const productId = Number(id)
                 const p = await fetchProductById(productId);
+                await setCategoryId(p?.categoryId)
                 setProduct(p);
                 console.log('s', product?.id)
                 if(p?.id){

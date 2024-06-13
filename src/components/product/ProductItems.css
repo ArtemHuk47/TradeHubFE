@@ -10,7 +10,23 @@
 
 
 
+.description-quantity {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
 
+
+.description-quantity { }
+
+.description-quantity button {
+    /*border: 1px solid black;*/
+    /*padding: 0.2rem;*/
+    background-color: #E42828;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 4px;
+}
 
 .product-list {
     display: grid;

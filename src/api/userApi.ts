@@ -26,3 +26,8 @@ export const fetchCartItemsByUserId = async (userId: number):Promise<CartItemDto
     const response = await api.get<CartItemDto[]>(`Cart/GetCartItems/${userId}`);
     return response.data;
 };
+
+export const fetchCartPriceItemsByUserId = async (userId: number):Promise<number> => {
+    const response = await api.get<number>(`Cart/price/${userId}`);
+    return response.data;
+};

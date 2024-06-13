@@ -2,10 +2,13 @@ import React, {ChangeEvent, useEffect, useState} from 'react';
 import "../components/add-image/AddImage.css";
 import "../components/add-info/AddInfo.css"
 import {Category, Condition, CreateProductDto, Product} from "../models/models";
-import {createProduct, uploadProductImages} from "../api/productApi";
+import {createProduct, predictPrice, PricePredictionDto, uploadProductImages} from "../api/productApi";
 import {fetchCategories} from "../api/categoryApi";
+import {useNavigate} from "react-router-dom";
+import {MAIN_ROUTE} from "../utils/consts";
 
 function AddPage() {
+    const navigate = useNavigate();
     const [images, setImages] = useState<File[]>([]);
     const [imagePreviews, setImagePreviews] = useState<string[]>([]);
     const [name, setName] = useState('');
@@ -54,6 +57,7 @@ function AddPage() {
         } catch (error) {
             console.error('Failed to create product or upload images:', error);
         }
+        navigate(MAIN_ROUTE)
     };
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +71,24 @@ function AddPage() {
     const handleRemoveImage = (index: number) => {
         setImages(prev => prev.filter((_, i) => i !== index));
         setImagePreviews(prev => prev.filter((_, i) => i !== index));
+    };
+
+    const handlePredictPrice = async () => {
+        if (categoryId && name && condition !== '') {
+            const dto: PricePredictionDto = {
+                name: name,
+                categoryId: Number(categoryId),
+                condition: Number(condition)
+            };
+            try {
+                const predictedPrice = await predictPrice(dto);
+                setPrice(predictedPrice.toString());
+            } catch (error) {
+                console.error('Failed to predict price:', error);
+            }
+        } else {
+            alert('Please make sure all fields are filled correctly.');
+        }
     };
 
     return (
@@ -120,7 +142,7 @@ function AddPage() {
                             <p>Ціна товару</p>
                             <input type="text" value={price} onChange={e => setPrice(e.target.value)}/>
                         </div>
-                        <p className="price-button">Визначити ціну</p>
+                        <p className="price-button" onClick={handlePredictPrice}>Визначити ціну</p>
                     </div>
                     <div className="info-amount">
                         <p>Кількість товару</p>

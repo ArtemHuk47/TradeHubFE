@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {CartItemDto, Product} from "../../models/models";
 import {fetchProductById, fetchProductImages, fetchProducts} from "../../api/productApi";
 import Search from "../search/Search";
@@ -11,8 +11,8 @@ interface ProductCartItemProps {
 }
 function ProductCartItem({cartItem, setReqRef, x}: ProductCartItemProps) {
     const [image, setImage] = useState<string>("");
-    const[product, setProduct] = useState<Product | undefined>(undefined)
-    const[quantity, setQuantity] = useState<number>(cartItem.quantity)
+    const [product, setProduct] = useState<Product | undefined>(undefined)
+    const [quantity, setQuantity] = useState<number>(cartItem.quantity)
     console.log(cartItem)
     useEffect(() => {
         const getUsers = async () => {
@@ -56,22 +56,32 @@ function ProductCartItem({cartItem, setReqRef, x}: ProductCartItemProps) {
 
     }, [quantity]);
     return (
-        <div className="cart-item">
-            <div className="cart-item-image">
-                {image ? <img src={`http://localhost:5292/${image}`} alt={product?.name} /> : <p>No Image Available</p>}
-            </div>
-            <div className="cart-item-description">
-                <p className="description-title">{product?.name}</p>
-                <p className="description-price">${product?.price}</p>
-                <div className="description-quantity">
-                    <button onClick={() => updateQuantity(quantity + 1)}>+</button>
-                    <div>{quantity}</div>
-                    <button onClick={() => quantity > 1 ? updateQuantity(quantity - 1) : removeItem()}>-</button>
+        <div>
+            <div className="cart-item">
+                <div className="cart-item-image">
+                    {image ? <img src={`http://localhost:5292/${image}`} alt={product?.name}/> :
+                        <p></p>}
                 </div>
-                <button onClick={removeItem}>Remove</button>
+                <div className="cart-item-description">
+                    <p className="description-title">{product?.name}</p>
+                    <p className="description-price">{product?.price} Грн</p>
+                    <div className="description-quantity">
+
+
+                        <button onClick={() => quantity > 1 ? updateQuantity(quantity - 1) : removeItem()}>-</button>
+                        <div>{quantity}</div>
+                        <button onClick={() => updateQuantity(quantity + 1)}>+</button>
+                    </div>
+                    <button className="remove-button" onClick={removeItem}>Remove</button>
+                </div>
+
+
             </div>
+
         </div>
-    );
+
+    )
+        ;
 }
 
 export default ProductCartItem;

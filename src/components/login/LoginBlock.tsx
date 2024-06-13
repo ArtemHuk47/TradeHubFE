@@ -46,9 +46,9 @@ function LoginBlock() {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div className="login-input">
+                <div className="login-input ">
                     <p>Пароль</p>
-                    <input
+                    <input className="password"
                         type="text"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

@@ -86,7 +86,7 @@ function ProductName({product}: ProductNameProps) {
                     <p>{product?.name ?? ""}</p>
                 </div>
                 <div className="info-price">
-                    <p>{product?.price ?? 0}</p>
+                    <p>{product?.price ?? 0} Грн</p>
                 </div>
 
                 <div className="info-button-cart" onClick={handleAddToCart}>

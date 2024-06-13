@@ -11,9 +11,12 @@ import ProductCartItem from "../components/product/ProductCartItem";
 import MessageList from "../components/MessageList";
 import ChatInput from "../components/ChatInput";
 import ChatInfo from "../components/ChatInfo";
+import api from "../api/api";
 
 
 function ChatPage() {
+
+    const chatId = 3;
     const { id } = useParams();
     const [product, setProduct] = useState<Product | null>(null); // Define the state based on your product structure
     const [images, setImages] = useState<string[] | null>(null);
@@ -41,7 +44,7 @@ function ChatPage() {
         getCategory();
 
     }, [id, images]);
-
+    const userId = Number(localStorage.getItem('userId'));
     console.log(images)
 
     return (
@@ -52,8 +55,8 @@ function ChatPage() {
             </div>
 
             <div className="chat-right">
-                <MessageList/>
-                <ChatInput/>
+                <MessageList chatId={chatId}/>
+                <ChatInput chatId={chatId} userId={userId}/>
             </div>
 
 
